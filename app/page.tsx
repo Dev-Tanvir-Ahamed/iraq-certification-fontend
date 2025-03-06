@@ -17,7 +17,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/certificate/verify",
+        "https://iraq-certification-backend.onrender.com/api/certificate/verify",
         {
           method: "POST",
           headers: {
