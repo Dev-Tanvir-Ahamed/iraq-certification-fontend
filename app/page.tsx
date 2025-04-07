@@ -15,10 +15,11 @@ export default function Home() {
   const verifyCertificate = async () => {
     setLoading(true);
     setResult(null);
-
+    
+    // https://iraq-certification-backend.onrender.com
     try {
       const response = await fetch(
-        "https://iraq-certification-backend.onrender.com/api/certificate/verify",
+        "http://localhost:5000/api/certificate/verify",
         {
           method: "POST",
           headers: {
