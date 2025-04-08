@@ -4,7 +4,7 @@ const BhedergonjWordNo1 = () => {
   return (
     <div className="space-x-3 p-4 my-10">
       <Link
-        href="/voters/bhedergonj/word-01/female"
+        href="/bhedergonj/word-01/female"
         className="bg-green-700 text-white font-bold py-2 px-4 rounded-md hover:bg-green-800 transition duration-300 ease-in-out"
       >
         Female

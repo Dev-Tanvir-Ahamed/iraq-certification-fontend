@@ -6,16 +6,15 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Voter } from "@/types/voter";
 import { Calendar, MapPin, User, Users } from "lucide-react";
 
-export default function VoterCard({ voter }) {
+export default function VoterCard({ voter }: { voter: Voter }) {
   return (
     <div className="flex items-center justify-center min-h-screen bg-slate-50 p-4">
       <Card className="w-full max-w-md overflow-hidden border-0 shadow-lg">
         <CardHeader className="flex flex-row items-center gap-4 p-4 bg-gradient-to-r from-emerald-600 to-emerald-500">
-          <div className="flex items-center justify-center w-14 h-14 rounded-full bg-white text-emerald-600 font-bold">
-            {voter.ক্রমিক}
-          </div>
+          <div className="flex items-center justify-center w-14 h-14 rounded-full bg-white text-emerald-600 font-bold"></div>
           <div className="flex-1">
             <h2 className="text-white font-medium">
               ভোটার_নং : {voter.voter_number}

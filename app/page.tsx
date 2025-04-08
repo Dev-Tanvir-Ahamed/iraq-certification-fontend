@@ -1,94 +1,60 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import img from "../public/images/banner.jpg";
 
-export default function Home() {
-  const [certificateNumber, setCertificateNumber] = useState("");
-  const [result, setResult] = useState<{
-    message: string;
-    certificate?: any;
-  } | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  const verifyCertificate = async () => {
-    setLoading(true);
-    setResult(null);
-    
-    // https://iraq-certification-backend.onrender.com
-    try {
-      const response = await fetch(
-        "http://localhost:5000/api/certificate/verify",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ certificateNumber }),
-        }
-      );
-
-      const data = await response.json();
-      setResult(data);
-    } catch (error) {
-      setResult({ message: "Error verifying certificate" });
-    }
-
-    setLoading(false);
-  };
-
+const VotersPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h1 className="text-2xl font-bold text-center mb-4">
-          Certificate Verification
-        </h1>
-        <div className="flex flex-col gap-4">
-          <input
-            type="text"
-            value={certificateNumber}
-            onChange={(e) => setCertificateNumber(e.target.value)}
-            placeholder="Enter Certificate Number"
-            className="border p-2 rounded w-full"
-            required
-          />
-          <button
-            onClick={verifyCertificate}
-            className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-            disabled={loading}
-          >
-            {loading ? "Verifying..." : "Verify"}
-          </button>
-        </div>
+    <div className="min-h-screen bg-gray-100">
+      <Image src={img} alt="banner" className="w-full object-cover" />
+      <div className="flex flex-col md:flex-row justify-around p-4 my-10">
+        <Link
+          href="/bhedergonj"
+          className="bg-green-700 text-white font-bold py-2 px-4 rounded-md hover:bg-green-800 transition duration-300 ease-in-out"
+        >
+          ভেদেরগঞ্জ{" "}
+        </Link>
+        <Link
+          href="/voter/2"
+          className="bg-green-700 text-white font-bold py-2 px-4 rounded-md hover:bg-green-800 transition duration-300 ease-in-out"
+        >
+          আর্শিনগর
+        </Link>
+        <Link
+          href="/voter/3"
+          className="bg-green-700 text-white font-bold py-2 px-4 rounded-md hover:bg-green-800 transition duration-300 ease-in-out"
+        >
+          চরভাগা
+        </Link>
+        <Link
+          href="/voter/4"
+          className="bg-green-700 text-white font-bold py-2 px-4 rounded-md hover:bg-green-800 transition duration-300 ease-in-out"
+        >
+          চরকুমারিয়া
+        </Link>
+        <Link
+          href="/voter/5"
+          className="bg-green-700 text-white font-bold py-2 px-4 rounded-md hover:bg-green-800 transition duration-300 ease-in-out"
+        >
+          ছয়গাঁও
+        </Link>
+        <Link
+          href="/voter/6"
+          className="bg-green-700 text-white font-bold py-2 px-4 rounded-md hover:bg-green-800 transition duration-300 ease-in-out"
+        >
+          চর সেনসাস
+        </Link>
 
-        {result && (
-          <div className="mt-4 p-4 border rounded bg-gray-50">
-            <p
-              className={`font-semibold ${
-                result.certificate ? "text-green-600" : "text-red-600"
-              }`}
-            >
-              {result.message}
-            </p>
-            {result.certificate && (
-              <div className="mt-2 text-sm text-gray-700">
-                <p>
-                  <strong>Certificate Number:</strong>{" "}
-                  {result.certificate.certificateNumber}
-                </p>
-                <p>
-                  <strong>Issued To:</strong> {result.certificate.issueDate}
-                </p>
-                <p>
-                  <strong>Expire Date:</strong>{" "}
-                  {new Date(result.certificate.expiryDate).toLocaleDateString()}
-                </p>
-              </div>
-            )}
-          </div>
-        )}
+        <Link
+          href="/voter/7"
+          className="bg-green-700 text-white font-bold py-2 px-4 rounded-md hover:bg-green-800 transition duration-300 ease-in-out"
+        >
+          দক্ষিণ তারর্বুনিয়া
+        </Link>
       </div>
     </div>
   );
-}
+};
+
+export default VotersPage;

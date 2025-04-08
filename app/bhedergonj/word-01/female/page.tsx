@@ -1,18 +1,8 @@
 "use client";
 
 import VoterCard from "@/components/VoterCard";
+import { Voter } from "@/types/voter";
 import { useEffect, useState } from "react";
-
-interface Voter {
-  name: string;
-  address: string;
-  date_of_birth: string;
-  voter_number: string;
-  husband_name?: string;
-  father_name?: string;
-  mother_name?: string;
-  occupation?: string;
-}
 
 const Bhedergonj01VoterDetailsFemale = () => {
   const [voters, setVoters] = useState<Voter[]>([]);
